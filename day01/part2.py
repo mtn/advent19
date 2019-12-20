@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+
 def calculate_fuel(mass):
     t = 0
     mass = mass // 3 - 2
@@ -8,6 +9,7 @@ def calculate_fuel(mass):
         mass = mass // 3 - 2
 
     return t
+
 
 total = 0
 

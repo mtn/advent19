@@ -15,7 +15,8 @@ def meets_criteria(i):
 
     return has_adjacent and not decreases
 
+
 total = 0
-for i in range(low, high+1):
+for i in range(low, high + 1):
     total += meets_criteria(i)
 print(total)

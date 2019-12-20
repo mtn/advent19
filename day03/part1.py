@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+
 def getpts(path):
     pts = set()
     loc = [0, 0]
@@ -8,28 +9,29 @@ def getpts(path):
         direction = step[0]
         distance = int(step[1:])
 
-        if direction == 'R':
+        if direction == "R":
             for s in range(distance):
                 pts.add((loc[0] + s + 1, loc[1]))
             loc[0] += distance
-        elif direction == 'L':
+        elif direction == "L":
             for s in range(distance):
                 pts.add((loc[0] - s - 1, loc[1]))
             loc[0] -= distance
-        elif direction == 'U':
+        elif direction == "U":
             for s in range(distance):
                 pts.add((loc[0], loc[1] - s - 1))
             loc[1] -= distance
-        elif direction == 'D':
+        elif direction == "D":
             for s in range(distance):
                 pts.add((loc[0], loc[1] + s + 1))
             loc[1] += distance
 
     return pts
 
+
 with open("input.txt") as f:
     directions = f.read()
-    path1, path2 = map(lambda x: x.split(','), directions.strip().split('\n'))
+    path1, path2 = map(lambda x: x.split(","), directions.strip().split("\n"))
 
 pts1 = getpts(path1)
 pts2 = getpts(path2)

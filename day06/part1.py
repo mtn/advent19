@@ -6,7 +6,7 @@ orbiters = {}
 orbitees = defaultdict(set)
 with open("input.txt") as f:
     for line in f:
-        orbitee, orbiter = line.strip().split(')')
+        orbitee, orbiter = line.strip().split(")")
         orbiters[orbiter] = orbitee
         orbitees[orbitee].add(orbiter)
 
@@ -22,6 +22,6 @@ while q:
     node, dist = q.popleft()
     for orbitee in orbitees[node]:
         total += dist
-        q.append((orbitee, dist+1))
+        q.append((orbitee, dist + 1))
 
 print(total)
