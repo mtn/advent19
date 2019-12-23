@@ -90,10 +90,11 @@ class IntcodeComputer(object):
             self.step(with_logging)
         return self.diagnostic_code
 
+
 BLACK = 0
 WHITE = 1
 
-heading = 0 # 0 is up, increasing clockwise
+heading = 0  # 0 is up, increasing clockwise
 x, y = 0, 0
 
 colors = {}
@@ -105,9 +106,9 @@ while computer.memory[computer.pos] != 99:
     colors[(x, y)] = computer.run()
     direction_change = computer.run()
 
-    if direction_change == 0: # rotate left
+    if direction_change == 0:  # rotate left
         heading -= 1
-    else: # rotate right
+    else:  # rotate right
         heading += 1
     heading %= 4
 
@@ -125,6 +126,9 @@ max_x = max(c[0] for c in colors.keys())
 min_y = min(c[1] for c in colors.keys())
 max_y = max(c[1] for c in colors.keys())
 
-for y in range(min_y, max_y+1):
-    row = ["*" if (x, y) in colors and colors[(x, y)] == WHITE else " " for x in range(max_x, min_x, -1)]
+for y in range(min_y, max_y + 1):
+    row = [
+        "*" if (x, y) in colors and colors[(x, y)] == WHITE else " "
+        for x in range(max_x, min_x, -1)
+    ]
     print("".join(row))

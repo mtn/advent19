@@ -14,6 +14,7 @@ with open("input.txt") as f:
 
         moons.append([[x, y, z], [0, 0, 0]])
 
+
 def update_velocity(ind, m1, m2):
     if m1[0][ind] > m2[0][ind]:
         m1[1][ind] -= 0.5
@@ -21,6 +22,7 @@ def update_velocity(ind, m1, m2):
     elif m1[0][ind] < m2[0][ind]:
         m1[1][ind] += 0.5
         m2[1][ind] -= 0.5
+
 
 def print_status(step):
     print(f"After {step} steps:")

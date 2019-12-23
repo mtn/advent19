@@ -15,6 +15,7 @@ with open("input.txt") as f:
 
         moons.append([[x, y, z], [0, 0, 0]])
 
+
 def update_velocity(ind, m1, m2):
     if m1[0][ind] > m2[0][ind]:
         m1[1][ind] -= 0.5
@@ -22,6 +23,7 @@ def update_velocity(ind, m1, m2):
     elif m1[0][ind] < m2[0][ind]:
         m1[1][ind] += 0.5
         m2[1][ind] -= 0.5
+
 
 def print_status(step):
     print(f"After {step} steps:")
@@ -51,12 +53,13 @@ def get_steps_till_repeat(moons):
 
     return step
 
+
 xs = [m[0][0] for m in moons]
 ys = [m[0][1] for m in moons]
 zs = [m[0][2] for m in moons]
 
-x_steps = get_steps_till_repeat([xs, [0]*len(xs)])
-y_steps = get_steps_till_repeat([ys, [0]*len(xs)])
-z_steps = get_steps_till_repeat([zs, [0]*len(xs)])
+x_steps = get_steps_till_repeat([xs, [0] * len(xs)])
+y_steps = get_steps_till_repeat([ys, [0] * len(xs)])
+z_steps = get_steps_till_repeat([zs, [0] * len(xs)])
 
 print(np.lcm(np.lcm(x_steps, y_steps), z_steps))
